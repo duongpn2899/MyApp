@@ -1,72 +1,42 @@
-package com.example.demo;
+package com.example.myapp;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
-
 import android.view.View;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 public class Home extends AppCompatActivity {
-
-    Button btnThoat, btnPlayer;
-
     AlertDialog dialog;
-
-
-
+    private Button button1, button2;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        Anhxa();
-
-
-        AddEvent();
-
-    }
-
-    protected void Anhxa() {
-        btnThoat = findViewById(R.id.btn_thoat);
-        btnPlayer = findViewById(R.id.btn_player);
-
-    }
-
-    protected void AddEvent() {
-        btnThoat.setOnClickListener(new View.OnClickListener() {
+        button1 = (Button)findViewById(R.id.btn_play);
+        button1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                ShowAlertDialog();
+            public void onClick(View v) {
+                Intent intent = new Intent(Home.this,Menu.class);
+                startActivity(intent);
             }
         });
-
-        btnPlayer.setOnClickListener(new View.OnClickListener() {
+        button2 = (Button) findViewById(R.id.btn_exit);
+        button2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                btnPlayer.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(),R.anim.scale_btn));
-
-                new Timer().schedule(new TimerTask() {
-                    @Override
-                    public void run() {
-                        Intent intent = new Intent(Home.this, Menu.class);
-                        startActivity(intent);
-                    }
-                }, 100);
+            public void onClick(View v) {
+                showAlertDialog();
             }
+
+
         });
-
     }
-
-    private void ShowAlertDialog() {
+    private void showAlertDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Game Caro");
         builder.setMessage("Bạn chắc chắn muốn thoát không?");
@@ -90,6 +60,6 @@ public class Home extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        ShowAlertDialog();
+        showAlertDialog();
     }
 }

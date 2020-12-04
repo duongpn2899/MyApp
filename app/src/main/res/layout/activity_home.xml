@@ -1,39 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home">
+    android:orientation="vertical"
+    android:background="@drawable/bg_v1"
+    tools:context="com.example.demo.Home">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/logo_v1" />
+
 
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:background="@drawable/paper">
+        android:gravity="top|center"
+        android:orientation="vertical"
+        android:paddingTop="0dp">
 
-s
-        <Button
-            android:id="@+id/btnOnline"
-            android:layout_width="155dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:layout_marginTop="200dp"
-            android:layout_marginBottom="5dp"
-            android:text="Online" />
 
 
         <Button
-            android:id="@+id/btnThoat"
-            android:layout_width="155dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
-            android:text="Exit" />
+            android:id="@+id/btn_player"
+            android:layout_width="200dp"
+            android:layout_marginTop="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/oval"
+            android:text="Tự Chơi"
+            android:textColor="#fff" />
 
+        <Button
+            android:id="@+id/btn_thoat"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/exit_btn"
+            android:text="Thoát"
+            android:textColor="#000" />
 
     </LinearLayout>
-</RelativeLayout>
+
+</LinearLayout>
